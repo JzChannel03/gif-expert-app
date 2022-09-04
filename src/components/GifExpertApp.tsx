@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import AddCategory from "./AddCategory";
 
 const GifExpertApp = () => {
 
@@ -22,6 +23,7 @@ const GifExpertApp = () => {
     return (
         <div>
             <h2>GifExpertApp</h2>
+            <AddCategory setCategories={setCategories}/>
             <hr/>
             <h3>Más buscados: </h3>
             <ul id={"listMoreSearch"}>

@@ -1,9 +1,21 @@
+//Variables
+$margin_right: 10px;
+
+
+
 * {
   font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono", "Droid Sans Mono", monospace, monospace;
 }
 
 body {
   padding: 3%;
+}
+
+form {
+  label{
+    font-size: 1.4rem;
+    margin-right: $margin_right;
+  }
 }
 
 h3{
@@ -17,7 +29,7 @@ ul{
     color: black;
     text-decoration: underline;
     display: inline-block;
-    margin-right: 10px;
+    margin-right: $margin_right;
     border: 1px blue solid;
     border-radius: 4px;
     padding: 4px;
@@ -29,4 +41,10 @@ ul{
       background-color: #22A0E8;
     }
   }
+}
+
+input {
+  width: 10%;
+  font-size: 1.2rem;
+  display: inline-block;
 }
