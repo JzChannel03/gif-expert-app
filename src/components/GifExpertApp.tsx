@@ -1,12 +1,14 @@
 import React, {useState} from "react";
 import AddCategory from "./AddCategory";
+import GifGrid from "./GifGrid";
 
 const GifExpertApp = () => {
 
-    const [Categories, setCategories] = useState(['One Punch', 'Samurai X', 'Dragon Ball', 'Sonic X']);
+    const [Categories, setCategories] = useState(['Sonic X']);
 
     const link = (e: React.SyntheticEvent) => {
-        window.location.href = `https://google.com/search?q=${(e.target as HTMLUListElement).textContent}`
+        const loc = window.location;
+        window.location.href = `${loc.origin}/#${(e.target as HTMLUListElement).textContent}`;
     }
 
     const handleDelete = (e: React.SyntheticEvent) => {
@@ -25,7 +27,7 @@ const GifExpertApp = () => {
             <h2>GifExpertApp</h2>
             <AddCategory setCategories={setCategories}/>
             <hr/>
-            <h3>Más buscados: </h3>
+            <h3>Listado: </h3>
             <ul id={"listMoreSearch"}>
                 {Categories.map((value) => {
                     return (
@@ -33,7 +35,17 @@ const GifExpertApp = () => {
                     );
                 })}
             </ul>
+
             {Categories.length && <button onClick={handleDelete}>Borrar último elemento</button>}
+
+            <ul>
+                {Categories.map((value) =>
+                    (
+                        <li key={value} onClick={link}><GifGrid category={value}/></li>
+                    )
+                )}
+            </ul>
+
 
         </div>
     )

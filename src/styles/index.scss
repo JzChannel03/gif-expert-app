@@ -1,7 +1,13 @@
 //Variables
 $margin_right: 10px;
 
-
+@mixin buttonProps(){
+  border: 1px blue solid;
+  border-radius: 4px;
+  &:hover{
+    cursor: pointer;
+  }
+}
 
 * {
   font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono", "Droid Sans Mono", monospace, monospace;
@@ -16,13 +22,18 @@ form {
     font-size: 1.4rem;
     margin-right: $margin_right;
   }
+  input[type='submit']{
+    width: 7%;
+    margin: 0 10px 0 10px;
+    @include buttonProps();
+  }
 }
 
 h3{
   display: inline;
 }
 
-ul{
+ul#listMoreSearch{
   padding: 0;
   display: inline-block;
   li{
@@ -30,13 +41,11 @@ ul{
     text-decoration: underline;
     display: inline-block;
     margin-right: $margin_right;
-    border: 1px blue solid;
-    border-radius: 4px;
     padding: 4px;
     background-color: #33D4FF;
+    @include buttonProps();
 
     &:hover{
-      cursor: pointer;
       transition-duration: 0.5s;
       background-color: #22A0E8;
     }

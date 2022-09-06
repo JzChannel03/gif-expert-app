@@ -4,10 +4,21 @@ interface Categories{
     setCategories: React.Dispatch<SetStateAction<string[]>>
 }
 
+/**
+ *
+ * @param props
+ * @constructor
+ */
+
 const AddCategory = (props: Categories) => {
 
     const [inputValue, setInputValue] = useState('');
-    
+
+    /**
+     *
+     * @param e Recibe como argumento el evento del Form
+     * @return {void} Always return void
+     */
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
