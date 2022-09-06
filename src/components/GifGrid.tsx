@@ -39,17 +39,20 @@ const GifGrid = ({category} : {category: string}) => {
 
 
     return (
-        <div>
+        <>
             <h3 id={category}>{category}</h3>
-            <br/>
+            <div className={"card-grid"}>
 
-            {ImagesData.map((value) =>
-                (
-                    <GifGridItem {...value}/>
-                )
-            )}
 
-        </div>
+                {ImagesData.map((value) =>
+                    (
+                        <GifGridItem {...value}/>
+                    )
+                )}
+
+            </div>
+        </>
+
     );
 };
 

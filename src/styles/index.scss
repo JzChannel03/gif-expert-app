@@ -19,12 +19,21 @@ body {
 
 form {
   label{
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     margin-right: $margin_right;
   }
+  input {
+    max-width: 30%;
+    min-width: 8%;
+    font-size: 1.2rem;
+    display: inline-block;
+  }
   input[type='submit']{
-    width: 7%;
-    margin: 0 10px 0 10px;
+    max-width: 25%;
+    min-width: 12%;
+    margin-left: 10px;
+    max-font-size: 20px;
+    min-font-size: 12px;
     @include buttonProps();
   }
 }
@@ -52,8 +61,25 @@ ul#listMoreSearch{
   }
 }
 
-input {
-  width: 10%;
-  font-size: 1.2rem;
-  display: inline-block;
+.card{
+  align-content: center;
+  border: 1px black solid;
+  border-radius: 10px;
+  margin: 10px;
+  overflow: hidden;
+
+  p{
+    padding: 5px;
+    text-align: center;
+  }
+
+  img{
+    max-height: 170px;
+  }
+}
+
+.card-grid{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
