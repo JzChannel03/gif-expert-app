@@ -34,7 +34,7 @@ const GifExpertApp = () => {
                 })}
             </ul>
 
-            {Categories.length && <button onClick={handleDelete}>Borrar último elemento</button>}
+            {Categories.length !== 0 && <button onClick={handleDelete}>Borrar último elemento</button>}
 
             <ul className={"category"}>
                 {Categories.map((value) =>
