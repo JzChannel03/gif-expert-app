@@ -1,11 +1,18 @@
 import React, {useEffect, useState} from 'react';
+import getImgFetch from "../helpers/getImgFetch";
+
+interface imgProps{
+    title: string,
+    img: string,
+    id: string
+}
 
 type FetchGifsObject = {
-    data: number[],
+    data: imgProps[],
     loading: boolean
 }
 
-const useFetchGifs = () => {
+const useFetchGifs = (category: string) => {
 
     const [state, setState] = useState<FetchGifsObject>({
         data: [],
@@ -13,8 +20,11 @@ const useFetchGifs = () => {
     });
 
     useEffect(() => {
-
-    }, []);
+        getImgFetch(category).then((value) => setState({
+            data: value,
+            loading: false
+        }))
+    }, [category]);
 
 
     return state;
