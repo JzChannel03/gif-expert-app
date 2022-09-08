@@ -25,7 +25,7 @@ const AddCategory = (props: Categories) => {
         /*Necesita ser una función u operación pura
         La cual no modifique el arreglo directamente*/
         if (inputValue.trim().length > 2){
-            props.setCategories((value) => [...value, inputValue]);
+            props.setCategories((value) => [inputValue, ...value]);
             setInputValue('');
         }
     }

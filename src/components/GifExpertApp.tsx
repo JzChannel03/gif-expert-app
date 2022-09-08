@@ -11,13 +11,11 @@ const GifExpertApp = () => {
         window.location.href = `${loc.origin}/#${(e.target as HTMLUListElement).textContent}`;
     }
 
-    const handleDelete = (e: React.SyntheticEvent) => {
+    const handleDelete = () => {
         setCategories((value) => {
-            if (e.isTrusted){
-                value.pop();
-                e.isTrusted = false;
-            }
-            return [...value];
+            const array = [...value];
+            array.pop();
+            return array;
         });
     }
 
