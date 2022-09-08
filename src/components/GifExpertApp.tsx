@@ -22,10 +22,12 @@ const GifExpertApp = () => {
 
     return (
         <div>
-            <h2>GifExpertApp</h2>
+            <h2
+                className={'animate__animated Title'}
+            >GifExpertApp</h2>
             <AddCategory setCategories={setCategories}/>
             <hr/>
-            <h3>Listado: </h3>
+
             <ul id={"listMoreSearch"}>
                 {Categories.map((value) => {
                     return (
@@ -34,7 +36,19 @@ const GifExpertApp = () => {
                 })}
             </ul>
 
-            {Categories.length !== 0 && <button onClick={handleDelete}>Borrar último elemento</button>}
+            {
+                Categories.length !== 0
+                &&
+                <button onClick={handleDelete}>Delete last category</button>
+            }
+
+            {
+                Categories.length !== 0
+                    ?
+                    <h3>List: </h3>
+                    :
+                    <h3>No items to display, please add a new category.</h3>
+            }
 
             <ul className={"category"}>
                 {Categories.map((value) =>
@@ -44,11 +58,9 @@ const GifExpertApp = () => {
                 )}
             </ul>
 
-
         </div>
     )
 }
-
 
 
 export default GifExpertApp;

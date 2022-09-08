@@ -12,7 +12,7 @@ const GifGrid = ({category} : {category: string}) => {
     return (
         <>
             <h3 id={category}>{category}</h3>
-            {loading && <p>Loading...</p>}
+            {loading && <p className={'loading animate__animated'}>Loading...</p>}
             <div className={"card-grid"}>
 
                 {images.map((value) =>

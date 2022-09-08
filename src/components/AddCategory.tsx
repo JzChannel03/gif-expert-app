@@ -13,6 +13,7 @@ interface Categories{
 const AddCategory = (props: Categories) => {
 
     const [inputValue, setInputValue] = useState('');
+    const [categoryExists, setCategoryExists] = useState('');
 
     /**
      *
@@ -25,7 +26,18 @@ const AddCategory = (props: Categories) => {
         /*Necesita ser una función u operación pura
         La cual no modifique el arreglo directamente*/
         if (inputValue.trim().length > 2){
-            props.setCategories((value) => [inputValue, ...value]);
+            props.setCategories((value) => {
+                if(!value.some(
+                        (value) =>
+                            value.toLowerCase() === inputValue.toLowerCase()
+                    )
+                ){
+                    setCategoryExists('');
+                    return [inputValue, ...value];
+                }
+                setCategoryExists('The category exists');
+                return value;
+            });
             setInputValue('');
         }
     }
@@ -45,6 +57,7 @@ const AddCategory = (props: Categories) => {
                     onChange={handleInputChange}
                 />
                 <input type="submit"/>
+                <span className={'errorCategory'}>{categoryExists}</span>
             </form>
         </div>
     );
